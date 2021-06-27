@@ -1,0 +1,40 @@
+<template>
+    <lightning-card >      
+      
+        <lightning-icon icon-name="utility:connected_apps" variant="inverse" size="x-small" style="background-color: #16325c;  margin: 0 5px 5px 10px;  padding: 5px;"
+        title="small size"></lightning-icon>
+        <span style="font-weight: bold; color: #16325c; font-size:large">Matriz Monkey</span>
+        
+        <p style="color:black; padding: 5px;  font-weight:normal; border-bottom:solid 1px #C0C0C0; font-size: 13px; font-weight: bold; ">
+           Matriz , resultado, melhor caminho.
+        </p>
+        <div class="slds-text-align_right" style="font-weight:normal; padding: 5px; margin:5px 5px; " >
+          <lightning-button variant="brand" label="Gerar Matriz" onclick={gerarMatriz}></lightning-button>
+        </div>
+  
+         <div class="msgs spinnerHolder">
+          <lightning-spinner if:true={showSpinner} alternative-text="Clonando PCD..." size="medium"></lightning-spinner>
+        </div>
+  
+        <template if:true={success}>
+          <div class="slds-text-align_left" style="font-weight: bold; margin-left: 5px;">
+            Nova matriz:
+            <p style="cursor: pointer; color:#16325c; font-weight: bold;" onclick={navigateToRecordViewPage}>{resultColunas}</p>            
+            Melhor caminho:
+            <p style="cursor: pointer; color:#16325c; font-weight: bold;" onclick={navigateToRecordViewPage}>{resultCaminho}</p>
+            Resultado:
+            <p style="cursor: pointer; color:#16325c; font-weight: bold;" onclick={navigateToRecordViewPage}>{resultNumero}</p>
+            
+          </div>
+          <!-- <lightning-button variant="brand" label={resultNumero} title={resultNumero} onclick={navigateToRecordViewPage}></lightning-button> -->
+        </template>
+  
+        <template if:false={success}>
+          <div class="slds-text-align_left" style="font-weight: bold; margin-left: 5px;">
+           <p style="color: red;">{errorMsg}</p>
+          </div>
+          <!-- <lightning-button variant="brand" label={resultNumero} title={resultNumero} onclick={navigateToRecordViewPage}></lightning-button> -->
+        </template>
+  
+    </lightning-card>
+</template>

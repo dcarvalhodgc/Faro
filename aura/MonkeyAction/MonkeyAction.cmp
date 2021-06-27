@@ -1,0 +1,5 @@
+<aura:component
+  implements="force:lightningQuickActionWithoutHeader,flexipage:availableForAllPageTypes,force:hasRecordId"
+  controller="MatrizController">
+  <c:matrizMonkey recordId="{!v.recordId}"></c:matrizMonkey>
+</aura:component>
